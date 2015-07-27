@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample use</title>
+  </head>
+  <style>
+
+  </style>
+  <body>
+	<script src="globe3D.js"></script>
+    <script>
+	var globe256;
+	Globe.addEvent(document, "DOMContentLoaded", function() {
+		globe256 = new Globe({
+			diameter: 256, // The size of the globe
+			image: "imgLambert", // The ID of the img tag
+			horizontalMargin: 120,
+			verticalMargin: 26,
+			shading: true,
+			div: "globe",
+			locationColor: "#000",
+			textShiftDown: 0.4
+		});
+		// Simple way to add locations to the globe
+		globe256.addLocation(51.5171, -0.1062, "London");
+		globe256.addLocation(30.2669, -97.7428, "Austin");
+		globe256.addLocation(-33.8683, 151.2086, "Sydney");
+		globe256.addLocation(63.6333, -19.6, "Eyjafjallaj\u00F6kull, Iceland");
+		globe256.addLocation(37.4908, 127.041455, "Gangnam-gu, Seoul");
+		globe256.addLocation(-77.8500, 166.6667, "McMurdo Station");
+		globe256.addLocation(-34.6036, -58.3817, "Buenos Aires");
+		// Alternate way to add a location to the globe
+		globe256.addLocation(new LatLong(6.45, 3.3833, "Lagos"));
+		// Spin it
+		globe256.spin(360/24);
+	});
+	
+    </script>
+
+	<div id="globe"></div>
+	<img id="imgLambert" src="lambert805x256.jpg" style="display:none" >
+
+	<br>
+  </body>
+</html>
